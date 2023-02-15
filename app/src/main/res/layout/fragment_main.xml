@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/value_of_counter"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_counter_field"
+        app:layout_constraintEnd_toEndOf="@id/tv_counter_field"
+        app:layout_constraintStart_toStartOf="@id/tv_counter_field" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_counter_field"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:gravity="center"
+        android:textSize="200sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:hint="0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_counter_decrease"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="@string/minus"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@id/btn_counter_increase"
+        app:layout_constraintStart_toStartOf="@id/tv_counter_field"
+        app:layout_constraintTop_toBottomOf="@id/tv_counter_field" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_counter_increase"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/green"
+        android:text="@string/plus"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_counter_field"
+        app:layout_constraintStart_toEndOf="@id/btn_counter_decrease"
+        app:layout_constraintTop_toBottomOf="@id/tv_counter_field" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_drop_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="@string/drop"
+        app:layout_constraintEnd_toEndOf="@id/btn_counter_increase"
+        app:layout_constraintStart_toStartOf="@id/btn_counter_decrease"
+        app:layout_constraintTop_toBottomOf="@id/btn_counter_increase" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
