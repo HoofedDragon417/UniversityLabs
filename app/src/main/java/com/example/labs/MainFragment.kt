@@ -30,7 +30,9 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /**Подписываемся на обновление инкремента, находящийся в MainVM.*/
+        /**
+         * Подписываемся на обновление инкремента, находящийся в [MainVM].
+         * */
         lifecycleScope.launch {
             viewModel.counter.collect {
                 binding.tvCounterField.text = it.toString()
