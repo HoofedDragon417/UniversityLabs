@@ -1,7 +1,8 @@
-package com.example.labs
+package com.example.labs.common
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.labs.R
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.androidx.AppNavigator
 

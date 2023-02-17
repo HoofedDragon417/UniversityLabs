@@ -1,9 +1,7 @@
 <resources>
-    <string name="app_name">Coffimachine</string>
+    <string name="app_name">Coffee machine</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="minus">-</string>
-    <string name="plus">+</string>
-    <string name="drop">Сбросить</string>
-    <string name="value_of_counter">Значение инеркмента:</string>
+    <string name="coffee_machine">Coffee Machine</string>
+    <string name="delivery">Delivery</string>
 </resources>
