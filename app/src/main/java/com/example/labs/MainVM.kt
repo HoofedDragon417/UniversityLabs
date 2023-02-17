@@ -15,13 +15,13 @@ class MainVM : ViewModel() {
      * [viewModelScope] запускает отдельный поток для изменения значения инкремента вне потока UI.
      * */
     fun increaseCounter() {
-        viewModelScope.launch { counter.value.inc() }
+        viewModelScope.launch { counter.value+=1 }
     }
 
     /**Уменьшает инкремент на 1. Не позволяет выйти за 0.*/
     fun decreaseCounter() {
         viewModelScope.launch {
-            if (counter.value > 0) counter.value = counter.value.dec()
+            if (counter.value > 0) counter.value -=1
         }
     }
 
