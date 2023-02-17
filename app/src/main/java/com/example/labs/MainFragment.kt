@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.labs.databinding.FragmentMainBinding
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.collectLatest
 
 class MainFragment : Fragment() {
 
@@ -31,8 +31,8 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         /**Подписываемся на обновление инкремента, находящийся в MainVM.*/
-        lifecycleScope.launch {
-            viewModel.counter.collect {
+        lifecycleScope.launchWhenStarted {
+            viewModel.counter.collectLatest {
                 binding.tvCounterField.text = it.toString()
             }
         }
