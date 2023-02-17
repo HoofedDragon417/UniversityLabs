@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.labs.databinding.FragmentMainBinding
+import kotlinx.coroutines.launch
 
 class MainFragment : Fragment() {
 
-    //Привязка разметки fragment_main.xml к переменным.
+    /**Привязка разметки fragment_main.xml к переменным.*/
     private var _binding: FragmentMainBinding? = null
     private val binding get() = requireNotNull(_binding)
 
-    //Объявление ViewModel через делегат.
+    /**Объявление ViewModel через делегат.*/
     private val viewModel: MainVM by viewModels()
 
     override fun onCreateView(
@@ -28,22 +30,24 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //Подписываемся на обновление инкремента, находящийся в MainVM.
-        viewModel.counter.observe(viewLifecycleOwner) {
-            binding.tvCounterField.text = it.toString()
+        /**Подписываемся на обновление инкремента, находящийся в MainVM.*/
+        lifecycleScope.launch {
+            viewModel.counter.collect {
+                binding.tvCounterField.text = it.toString()
+            }
         }
 
-        //Вызов функции увеличения инкремента из ViewModel.
+        /**Вызов функции увеличения инкремента из ViewModel.*/
         binding.btnCounterIncrease.setOnClickListener {
             viewModel.increaseCounter()
         }
 
-        //Вызов функции уменьшения инкремента из ViewModel.
+        /**Вызов функции уменьшения инкремента из ViewModel.*/
         binding.btnCounterDecrease.setOnClickListener {
             viewModel.decreaseCounter()
         }
 
-        //Вызов функции сброса инкремента из ViewModel.
+        /**Вызов функции сброса инкремента из ViewModel.*/
         binding.btnDropCounter.setOnClickListener {
             viewModel.dropCounter()
         }

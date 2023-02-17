@@ -10,9 +10,8 @@ class MainActivity : AppCompatActivity() {
     /**
      *@param cicerone объявляет библиотеку навигации [Cicerone]
      * @param router используется для высокоуровневой навигации, выполняя необходимые переходы.
-     * @param navigatorHolder используются для подключения [navigator] к Cicerone.
+     * @param navigatorHolder используются для подключения [navigator] к [Cicerone].
      * @param navigator используется для запуска activity или fragment.
-     *
      **/
     private val cicerone = Cicerone.create()
     private val router get() = cicerone.router

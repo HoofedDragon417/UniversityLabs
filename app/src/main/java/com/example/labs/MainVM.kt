@@ -1,27 +1,33 @@
 package com.example.labs
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 
 class MainVM : ViewModel() {
 
-    //Показывает текущее значение инкремента.
-    val counter = MutableLiveData(0)
+    /**Хранит текущее значение инкремента.*/
+    val counter = MutableStateFlow(0)
 
-    //Увеличивает инкремент на 1.
+    /**Увеличивает инкремент на 1.
+     *
+     * [viewModelScope] запускает отдельный поток для изменения значения инкремента вне потока UI.
+     * */
     fun increaseCounter() {
-        counter.value = requireNotNull(counter.value) + 1
+        viewModelScope.launch { counter.value.inc() }
     }
 
-    //Уменьшает инкремент на 1. Не позволяет выйти за 0.
+    /**Уменьшает инкремент на 1. Не позволяет выйти за 0.*/
     fun decreaseCounter() {
-        if (requireNotNull(counter.value) > 0)
-            counter.value = requireNotNull(counter.value) - 1
+        viewModelScope.launch {
+            if (counter.value > 0) counter.value = counter.value.dec()
+        }
     }
 
-    //Сбрасывает инкремент до 0.
+    /**Сбрасывает инкремент до 0.*/
     fun dropCounter() {
-        counter.value = 0
+        viewModelScope.launch { counter.value = 0 }
     }
 
 }
