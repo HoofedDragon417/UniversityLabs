@@ -1,15 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.delivery.DeliveryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/delivery" />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_coffee_beans"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_coffee_beans"
+        app:layout_constraintBottom_toTopOf="@id/et_milk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_milk"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_milk"
+        app:layout_constraintBottom_toTopOf="@id/et_water"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_coffee_beans" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_water"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_water"
+        app:layout_constraintBottom_toTopOf="@id/btn_add_resources"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_milk" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_add_resources"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_water" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,4 +4,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="coffee_machine">Coffee Machine</string>
     <string name="delivery">Delivery</string>
+    <string name="machine_resources">Machine resources</string>
+
+    <string name="water_resources">Water: %d</string>
+    <string name="cash_resources">Cash: %d</string>
+    <string name="milk_resources">Milk: %d</string>
+    <string name="coffee_beans_resources">Coffee beans: %d</string>
+    <string name="add_milk">Add milk</string>
+    <string name="add_coffee_beans">Add coffee beans</string>
+    <string name="add_water">Add water</string>
+    <string name="add">Add</string>
+    <string name="make_espresso">Make espresso</string>
 </resources>

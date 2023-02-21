@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.labs.R
 import com.example.labs.adapters.ViewPagerAdapter
+import com.example.labs.common.BaseVM
 import com.example.labs.databinding.FragmentMainBinding
 import com.example.labs.screens.coffee_machine.CoffeeMachineFragment
 import com.example.labs.screens.delivery.DeliveryFragment
@@ -18,9 +19,6 @@ class MainFragment : Fragment() {
     /**Привязка разметки fragment_main.xml к переменным.*/
     private var _binding: FragmentMainBinding? = null
     private val binding get() = requireNotNull(_binding)
-
-    /**Объявление ViewModel через делегат.*/
-    private val viewModel: MainVM by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
